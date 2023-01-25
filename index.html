@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Of Visits</title>
+</head>
+
+<body>
+
+    <!--Create an output message  -->
+    <h1>This site has been visited <span id="visits"></span> times.</h1>
+
+    <!--  Create a namespace and key -->
+    <!-- https://api.countapi.xyz/create?namespace={domain of your website}&enable_reset=1 -->
+    <!-- secret key --- {"namespace":"OpenMyMind.com","key":"29d03f59-7d73-4f76-ab43-87a9e0a7f982","value":0} keeps track of your website-->
+
+
+    <!-- call the count api -->
+    <script async
+        src="https://api.countapi.xyz/hit/OpenMyMind.com/29d03f59-7d73-4f76-ab43-87a9e0a7f982?callback=websiteVisits">
+    </script>
+
+    <!-- display the count -->
+    <script>
+         function websiteVisits(response) {
+        document.querySelector("#visits").textContent = response.value;
+    }
+    </script>
+
+<!-- Reset the value of the counter -->
+<!-- https://api.countapi.xyz/set/{namespace}/{key}?value={whatever you want, most likely 0} -->
+
+
+<!-- : Manually check the counter copy paste this to the browswer -->
+<!-- https://api.countapi.xyz/get/{namespace}/{key} -->
+
+   
+</body>
+
+</html>
